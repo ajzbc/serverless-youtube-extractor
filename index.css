@@ -1,9 +1,45 @@
 /* Adapted from https://jsfiddle.net/72r62kzy/21/ */
 
+body {
+	max-width: 426px;
+	margin: 0 auto;
+	font-size: 20px;
+	text-align: center;
+	font-family: Segoe UI, Helvetica Neue, sans-serif;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+a {
+	color: #2a6fe6;
+	text-decoration: none;
+}
+
+input {
+	font-family: sans-serif;
+	font-size: 20px;
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	margin-top: 40px;
+	box-sizing: border-box;
+}
+
+button {
+	font-family: sans-serif;
+	font-size: 20px;
+	padding: 12px 20px;
+	width: 100%;
+}
+
 .thumb {
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
+	text-align: left;
+	padding-inline-start: 0;
 }
 
 .thumb li {
@@ -21,16 +57,6 @@
 
 .overlay .thumbnail {
 	display: block;
-}
-
-.overlay .time {
-	position: absolute;
-	z-index: 2;
-	right: 3px;
-	bottom: 3px;
-	padding: 2px 5px;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: white;
 }
 
 .overlay .playWrapper {
