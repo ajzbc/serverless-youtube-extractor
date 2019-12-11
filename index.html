@@ -6,10 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Serverless Youtube Extractor Demo</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    hello world
+    <input type="url" name="input" id="input" value="https://www.youtube.com/watch?v=sHzdsFiBbFc" autofocus>
+    <button onclick="get()">Get</button>
+
+    <ul class="thumb" id="display">
+    </ul>
+
+    <script>
+        async function get() {
+            const input = document.getElementById("input").value;
+            const videoID = new URL(input).searchParams.get('v');
+            const url = `https://youtube.ajzbc.com?id=${videoID}`;
+
+            var display = document.getElementById("display");
+
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log(data);
+
+                    display.innerHTML +=
+                        `<li>
+                        <div class="overlay">
+                            <a href="${data.video.url}"><img class="thumbnail" src="${data.thumbnail.url}" width="192" height="109" alt=""></a>
+                            <span class="time">3:28</span>
+                            <a href="${data.video.url}" class="playWrapper">
+                                <!--<span class="playBtn"><img src="http://wptf.com/wp-content/uploads/2014/05/play-button.png" width="50" height="50" alt=""></span>-->
+                            </a>
+                        </div>
+                        <div class="thumbCaption"><a href="">${data.title}</a></div>
+                    </li>`
+                });
+        }
+    </script>
 </body>
 
 </html>
